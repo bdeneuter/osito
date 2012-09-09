@@ -1,8 +1,12 @@
 package org.osito.javafx;
 
+import static com.sun.javafx.application.PlatformImpl.startup;
+
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
+import javafx.application.Platform;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -17,6 +21,17 @@ public abstract class AbstractGuiTest {
     @Before
     public void setUp() {
         Locale.setDefault(new Locale("en"));
+    }
+    
+    @Before
+    public void setUpJavaFX() {
+    	Platform.setImplicitExit(false);
+        startup(new Runnable() {
+            
+            @Override
+            public void run() {          
+            }
+        });
     }
 
     @Before
