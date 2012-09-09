@@ -1,5 +1,7 @@
 package org.osito.javafx.dialog.message;
 
+import org.osito.javafx.dialog.MessageKey;
+
 import javafx.scene.image.Image;
 
 public enum MessageType {
@@ -15,6 +17,10 @@ public enum MessageType {
 	
 	Image image() {
 		return new Image(imageLocation);
+	}
+	
+	MessageKey getDefaultTitle() {
+		return MessageKey.valueOf(name());
 	}
 	
 }

@@ -2,6 +2,9 @@ package org.osito.javafx.dialog.message;
 
 public enum Option {
 
-    YES, NO;
+    YES, 
+    NO,
+    OK,
+    CANCEL;
     
 }

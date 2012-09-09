@@ -5,8 +5,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-import org.osito.javafx.MessageKey;
-import org.osito.javafx.MessageService;
 import org.osito.javafx.dialog.OkDialog;
 
 class OkMessageDialog extends OkDialog {
@@ -14,14 +12,14 @@ class OkMessageDialog extends OkDialog {
 	private Window owner;
 	private MessageContent content;
 
-	OkMessageDialog(MessageType messageType, MessageKey messageKey, MessageService messageService) {
-		this(null, messageType, messageKey, messageService);
+	OkMessageDialog(MessageType messageType, String message) {
+		this(null, messageType, message);
 	}
 	
-	OkMessageDialog(Window owner, MessageType messageType, MessageKey messageKey, MessageService messageService) {
-		super(messageService);
+	OkMessageDialog(Window owner, MessageType messageType, String message) {
+		super();
 		this.owner = owner;
-		content = new MessageContent(messageType, messageKey);
+		content = new MessageContent(messageType, message);
 	}
 	
 	@Override

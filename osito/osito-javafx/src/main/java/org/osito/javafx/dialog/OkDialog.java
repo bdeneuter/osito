@@ -1,8 +1,8 @@
 package org.osito.javafx.dialog;
 
 import static javafx.geometry.Pos.CENTER;
-import static org.osito.javafx.MessageKey.key;
-import static org.osito.javafx.dialog.OkDialogId.OK_BUTTON;
+import static org.osito.javafx.dialog.MessageKey.OK;
+import static org.osito.javafx.dialog.NodeId.OK_BUTTON;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,18 +13,10 @@ import javafx.scene.control.ButtonBuilder;
 import javafx.scene.layout.BorderPaneBuilder;
 import javafx.scene.layout.HBoxBuilder;
 
-import org.osito.javafx.MessageService;
-
 public abstract class OkDialog extends Dialog {
     
-    protected MessageService messageService;
-
     protected Button okButton;
-    
-    public OkDialog(MessageService messageService) {
-		this.messageService = messageService;
-	}
-    
+        
     @Override
     public final Parent createRoot() {
         
@@ -34,7 +26,7 @@ public abstract class OkDialog extends Dialog {
                                 					   .children(
                                 							   ButtonBuilder.create()
                                                                				.id(OK_BUTTON.name())
-                                                                            .text(messageService.getText(key("ok")))
+                                                                            .text(OK.getText())
                                                                             .onAction(new EventHandler<ActionEvent>() {
                                                                             	@Override
                                                                                 public void handle(ActionEvent event) {
